@@ -62,3 +62,5 @@ operationsButtons.forEach((button) => {
     calculator.updateDisplay();
   });
 });
+
+// notes
