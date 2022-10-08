@@ -19,42 +19,39 @@ class Calculator {
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === '') return
-    if(this.previousOperand !== '') {
-      this.compute()
-      console.log('compute')
+    if (this.currentOperand === "") return;
+    if (this.previousOperand !== "") {
+      this.compute();
     }
     this.operation = operation;
-    console.log(operation)
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
 
   compute() {
-    console.log(this.operation)
-    let computation
-    const prev = parseFloat(this.previousOperand)
-    const current = parseFloat(this.currentOperand)
-    if (isNaN(prev) || isNaN(current)) return
+    let computation;
+    const prev = parseFloat(this.previousOperand);
+    const current = parseFloat(this.currentOperand);
+    if (isNaN(prev) || isNaN(current)) return;
     switch (this.operation) {
-      case '+' :
-        computation = prev + current
-        break
-      case '-' :
-        computation = prev - current
-        break
-      case '*' :
-        computation = prev * current
-        break
-      case '÷' :
-        computation = prev / current
-        break
+      case "+":
+        computation = prev + current;
+        break;
+      case "-":
+        computation = prev - current;
+        break;
+      case "*":
+        computation = prev * current;
+        break;
+      case "÷":
+        computation = prev / current;
+        break;
       default:
-        return 
+        return;
     }
-    this.currentOperand = computation
-    this.operation = undefined
-    this.previousOperand = ''
+    this.currentOperand = computation;
+    this.operation = undefined;
+    this.previousOperand = "";
   }
 
   updateDisplay() {
@@ -94,15 +91,14 @@ operationsButtons.forEach((button) => {
   });
 });
 
-equalsButtons.addEventListener('click', button => {
+equalsButtons.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
-})
+});
 
-allClearButtons.addEventListener('click', button => {
+allClearButtons.addEventListener("click", (button) => {
   calculator.clear();
   calculator.updateDisplay();
-})
+});
 
 // notes
-
