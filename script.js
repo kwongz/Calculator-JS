@@ -54,9 +54,21 @@ class Calculator {
     this.previousOperand = "";
   }
 
+  getDisplay(number) {
+    const floatNumber = parseFloat(number);
+    if (isNaN(floatNumber)) return "";
+    return floatNumber.toLocaleString("en");
+  }
+
   updateDisplay() {
-    this.currentOperandTextelement.innerText = this.currentOperand;
-    this.previousOperandTextelement.innerText = this.previousOperand;
+    this.currentOperandTextelement.innerText = this.getDisplay(
+      this.currentOperand
+    );
+    if (this.operation != null) {
+      this.previousOperandTextelement.innerText = `${this.getDisplay(
+        this.previousOperand
+      )} ${this.operation}`;
+    }
   }
 }
 
